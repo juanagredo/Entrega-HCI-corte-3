@@ -11,7 +11,7 @@ let letras = [
   "P"
 ];
 
-let fredoka;
+let consejo = false;
 
 let posOcupada = [false, false, false];
 let respuestas = ["", "", ""];
@@ -58,6 +58,7 @@ let B_ConfirmarStatus = 0;
 let tiempoboton = 30;
 let botonlisto = true;
 
+let buttonEscape = [];
 let buttonImg = [];
 let buttonStatus = 0;
 let personalidadImagenes = [];
@@ -136,6 +137,7 @@ function preload() {
   bgNiveles = loadImage('./public/images/BGround/FondoNiveles.png');
   tv = loadImage('./public/images/tv.png');
   imgfinal = loadImage('./public/images/BGround/FINAL.png');
+  buttonEscape = [loadImage('./public/images/botonX (1).png'), loadImage('./public/images/botonX (2).png')];
   
   Lit_elCumblast = loadImage('./public/images/personajes/LitElCumblast.png')
 
@@ -500,6 +502,18 @@ function draw() {
 
   }
 
+  if(consejo === true){
+
+    
+    image(pantallaTutorial2, 0, 0);
+
+    if (dist(mouseX, mouseY, 165,185) < 80 ) {
+      buttonStatus = 1;
+    } else {buttonStatus = 0}
+    image(buttonEscape[buttonStatus],112,136);
+    vidElement.pause();
+  }
+
   BotonConfirmar();
   checkButton();
   waitaminute();
@@ -844,6 +858,16 @@ function mousePressed() {
   // esto se borra despues de hacer los cambios de pantalla correctamente
 
 
+  if(dist(mouseX,mouseY,1769,49)<80){
+    consejo = true; 
+    playBtn.hide();
+  }
+  if(dist(mouseX,mouseY,185,165)<80){
+    consejo = false; 
+    playBtn.show();
+  }
+
+
   if (mouseX > 1540 && mouseX < 1550+ 240 && mouseY > 900 && mouseY < 910 + 60 && botonContinue ) {
 
     validarlas = true;
@@ -947,4 +971,10 @@ function mouseReleased() {
 
 
 function final(){
+
+  if (mouseIsPressed && dist(mouseX, mouseY, 1920/2 ,1300)) {
+    console.log(puntaje);
+    console.log("el puntaje es puntaje: ", puntaje);
+  }
+
 }
