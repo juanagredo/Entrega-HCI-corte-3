@@ -1,0 +1,25 @@
+{
+  "name": "corte-3-hci",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon sketch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lachosk/Corte-3-hci.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lachosk/Corte-3-hci/issues"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  },
+  "homepage": "https://github.com/Lachosk/Corte-3-hci#readme"
+}
+
